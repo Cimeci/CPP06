@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:20:44 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 17:41:18 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/09 19:47:02 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 
 	std::string input = argv[1];
 	
-	if (input == "-help"){return print_help();}
+	if (input == "--help"){return print_help();}
 
 	try{ScalarConverter::convert(input);}
 	catch(std::runtime_error &e){

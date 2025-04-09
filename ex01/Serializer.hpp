@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 13:21:35 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 20:35:27 by inowak--         ###   ########.fr       */
+/*   Created: 2025/04/09 18:58:38 by inowak--          #+#    #+#             */
+/*   Updated: 2025/04/09 19:44:28 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+# pragma once
 
-# include "colors.hpp"
-# include <iostream>
-# include <string>
-# include <cstring>
-# include <sstream>
-# include <limits>
-# include <cmath>
-# include <iomanip>
+# include "Data.hpp"
+# include <stdint.h>
 
-class ScalarConverter{
-
+class Serializer{
 	private:
-		ScalarConverter();
-		~ScalarConverter();
-		ScalarConverter(const ScalarConverter &cp);
-		ScalarConverter &operator=(const ScalarConverter &op);
+		Serializer();
+		Serializer(const Serializer &cp);
+		Serializer &operator=(const Serializer &op);
+		~Serializer();
 
 	public:
-		static	void convert(std::string &input);
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
-
-int print_help(void);

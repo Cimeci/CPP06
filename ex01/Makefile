@@ -6,8 +6,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 OBJDIR = obj
 
 SRC = main.cpp\
-	ScalarConverter.cpp\
-	help.cpp\
+		Serializer.cpp\
 
 OBJ = $(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
 

@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 13:21:35 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 20:35:27 by inowak--         ###   ########.fr       */
+/*   Created: 2025/04/09 19:07:04 by inowak--          #+#    #+#             */
+/*   Updated: 2025/04/09 19:11:32 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-# include "colors.hpp"
+# pragma once
 # include <iostream>
-# include <string>
-# include <cstring>
-# include <sstream>
-# include <limits>
-# include <cmath>
-# include <iomanip>
 
-class ScalarConverter{
-
-	private:
-		ScalarConverter();
-		~ScalarConverter();
-		ScalarConverter(const ScalarConverter &cp);
-		ScalarConverter &operator=(const ScalarConverter &op);
-
-	public:
-		static	void convert(std::string &input);
+struct Data{
+	int id;
+	std::string name;	
 };
-
-int print_help(void);
