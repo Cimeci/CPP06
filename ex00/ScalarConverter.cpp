@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:48:48 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/09 21:08:04 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:10:29 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,18 @@ void ScalarConverter::convert(std::string &input){
 
 // -------------------------------------- // CLASSIC CONVERT // -------------------------------------- //
 	
-	// DOUBLE CONVERT //
 
-	int find = input.find("f", 0);
+// -------------------------------------- // INPUT FORMAT // -------------------------------------- //
+
+	int findf = input.find("f", input.find(".", 0));
 	double d;
 	if (input.size() == 1){
 		d = static_cast<double>(input[0]);
 	}
 	else{
-		if ((int)input.size() != find){
+		if ((int)input.size() != findf){
 			std::string tmp;
-			input = tmp.append(input, 0, find);
+			input = tmp.append(input, 0, findf);
 		}
 		std::istringstream iss(input);
 		iss >> d;
@@ -78,36 +79,43 @@ void ScalarConverter::convert(std::string &input){
 	std::cout << "input : " << input << std::endl;
 	std::cout << "d : " << d << std::endl;
 
-
-	std::cout << UNDERLINE << BOLD << PURPLE <<"---- CONVERT ----" << RESET <<std::endl;
+// --------------------------------------- // PRINT CONVERT // --------------------------------------- //
 	
-	// CHAR CONVERT //
+	std::cout << UNDERLINE << BOLD << PURPLE <<"---- CONVERT ----" << RESET <<std::endl;
+
+// --------------------------------------- // CHAR CONVERT // ---------------------------------------- //
+
 	std::cout << BOLD << "\nchar: " << RESET;
 	if (std::isprint(static_cast<char>(d))){
 		std::cout << "'" << static_cast<char>(d) << "'" << std::endl;
 	}
 	else{std::cout << "Invalid char format" << std::endl;}
 	
-	// INT CONVERT //
+// ---------------------------------------- // INT CONVERT // ---------------------------------------- //
+
 	std::cout << BOLD << "\nint: " << RESET;
 	if (d >= std::numeric_limits<int>::min() && d <= std::numeric_limits<int>::max()){
 		std::cout << static_cast<int>(d) << std::endl;
 	}
 	else {std::cout << "Invalid int format"<< std::endl;}
 
-	
+// --------------------------------------- // FLOAT CONVERT // --------------------------------------- //
 
-	// FLOAT CONVERT //
 	std::cout << BOLD << "\nfloat: " << RESET;
 	if (d >= -std::numeric_limits<float>::max() && d <= std::numeric_limits<float>::max()) {
 		std::cout << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
 	}
+	else if (d < -std::numeric_limits<float>::max()){std::cout << "-inff" << std::endl;}
+	else if (d > std::numeric_limits<float>::max()){std::cout << "+inff" << std::endl;}
 	else {std::cout << "Invalid float format"<< std::endl;}
 
-	// DOUBLE CONVERT PRINT //
+// -------------------------------------- // DOUBLE CONVERT // --------------------------------------- //
+	
 	std::cout << BOLD << "\ndouble: " << RESET;
 	if (d >= -std::numeric_limits<double>::max() && d <= std::numeric_limits<double>::max()) {
 		std::cout << std::fixed << std::setprecision(1) << static_cast<double>(d) << std::endl;
 	}
+	else if (d < -std::numeric_limits<double>::max()){std::cout << "-inf" << std::endl;}
+	else if (d > std::numeric_limits<double>::max()){std::cout << "+inf" << std::endl;}
 	else {std::cout << "Invalid double format"<< std::endl;}
 }
