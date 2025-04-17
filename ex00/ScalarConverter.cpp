@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:48:48 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/10 14:10:29 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:04:36 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ void ScalarConverter::convert(std::string &input){
 // -------------------------------------- // INPUT FORMAT // -------------------------------------- //
 
 	int findf = input.find("f", input.find(".", 0));
-	double d;
+	long double d;
 	if (input.size() == 1){
-		d = static_cast<double>(input[0]);
+		d = static_cast<long double>(input[0]);
 	}
 	else{
 		if ((int)input.size() != findf){
