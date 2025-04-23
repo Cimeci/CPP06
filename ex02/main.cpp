@@ -6,7 +6,7 @@
 /*   By: inowak-- <inowak--@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 13:20:44 by inowak--          #+#    #+#             */
-/*   Updated: 2025/04/23 10:10:15 by inowak--         ###   ########.fr       */
+/*   Updated: 2025/04/23 10:17:16 by inowak--         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,6 @@ int main(void)
 	std::cout << "| Indentify pointer: "; identify(base);
 	std::cout << "| Indentify address: "; identify(*base);
 	std::cout << "+-----------------------------" << std::endl;
+
+	delete base;
 }
